@@ -35,17 +35,63 @@ public:
         3Sum problem is extension of 2Sum problem(a + b = k) if we fix one variable say c then it is 2Sum 
     problem where we need to find a + b = k where k = -c. 
     ----------------------------------------------------------------------------------------------
+    
     vector<vector<int>> threeSum(vector<int>& nums) {
-        int n = nums.size();
-        if (n < 3) { // not enough number to find triplets
+         int n = nums.size();
+        if (n < 3) {
             return {};
         }
-
-        // sorting the vector - O(NlogN)
+        
+        // result to return
+        std::vector<std::vector<int>> res;
+        
+        // sorting takes O(nlogn)
         std::sort(nums.begin(), nums.end());
+        
+        // TC: O(n^2)
+        for (int i = 0; i < n - 2; ++i) {
+            int j = i+1; // next to i
+            int k = n-1; // last index
+            int c = -nums[i]; // can be thought of k in Two Sum Problem
+            
+            // fixedTarget cannot be less than zero
+            // Optimisation
+            // If nums[i] > 0 => fixedTarget is < 0 that means there is no number negative in later indices as well
+            // , adding positive will never result to zero.
+            if (c < 0) {
+                break;
+            }
+            
+            while (j < k) {
+                int sum = nums[j] /*a*/ + nums[k]/*b*/; // exact two problem a + b = c where c = k and k = -nums[i]
+                if (sum == c) {
+                    // pushing tupletupletuple found in res 
+                    std::vector<int> tuple(3, 0);
+                    tuple[0] = nums[i];
+                    tuple[1] = nums[j];
+                    tuple[2] = nums[k];
+                    res.push_back(tuple);
+                    
+                    // handling repeation for value at nums[j]
+                    // excluding the repeated value
+                    while (j < k && tuple[1] == nums[j]) ++j;
 
-        for (int i = 0; i < n-2; ++i) {
-
+                    // handling repeation for value at nums[k]
+                    // excluding the repeated value
+                    while (k > j && tuple[2] == nums[k]) --k;
+                } else if (sum > c) {
+                    --k;
+                } else {
+                    ++j;
+                }
+           }
+  
+            // handling repeation for value at nums[i]
+            // excluding the repeated value
+            
+            while (i < n-1 && nums[i] == nums[i+1]) ++i;
         }
+        
+        return res;
     }
 };
