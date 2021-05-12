@@ -68,14 +68,14 @@ public:
                 // handling rep' for data at index j
                 -----------------------------------------------
                     IMPORTANT, CAN CAUSE RUNTIME ERROR 
-                    eg [0,0,0,0], target = 0
+                    eg [0,0,0,0], target = 0 if j < n used
                 while (j < n-2 && nums[j] == nums[j+1]) ++j;
                 --------------------------------------------------
             }
             // handling rep' for data at index i
             ------------------------------------------------
                     IMPORTANT, CAN CAUSE RUNTIME ERROR 
-                    eg [0,0,0,0], target = 0
+                    eg [0,0,0,0], target = 0 if j < n used
             while (i < n - 1 && nums[i] == nums[i+1]) ++i;
             -------------------------------------------------
         }
