@@ -35,7 +35,7 @@ public:
     */
     
     
-    // Method 1: Convert List into Array
+    // Method 1: Convert List into Array. Now, problem have been reduced to NGE for array.
     // TC: O(N) -> number of total push is N  so pop will be N. 
     vector<int> nextLargerNodes(ListNode* head) {
        if (head == nullptr) {
