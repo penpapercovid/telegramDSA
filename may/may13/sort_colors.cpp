@@ -52,7 +52,7 @@ public:
                         break;
                 case 2:
                         std::swap(nums[j], nums[k])
-                            
+                        --k;                            
                         break;
             }
         }
