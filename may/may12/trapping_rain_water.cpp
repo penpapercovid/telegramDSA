@@ -51,6 +51,8 @@ public:
     // Method 3: The method 2 can be more optimised we don't need to store the right max building height.
     // It can be saved in a variable say maxHeightEncounteredInRight init to height[n-1] and whenver a higher value encountered while calculating the water trapped change it to new found value.
     // More Clear with code.
+    // TC: O(N)
+    // SC: O(N)
        int trap(vector<int>& height) {
         int n = height.size();
         // base condition
@@ -75,5 +77,8 @@ public:
         return trappedWater;
     }
     
-    
+-----------------------------------------------------------------------------------------------------------------------------------  
+    // Method 4: Using Two Pointers
+    // TC: O(N)
+    // SC: O(1)
 };
