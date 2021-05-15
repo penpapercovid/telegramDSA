@@ -41,7 +41,7 @@ public:
        if (head == nullptr) {
             return {};
         }
-        //coverting to list
+        //coverting to vector
         std::vector<int> res;
         for (; head; head = head->next) res.push_back(head->val);
         
