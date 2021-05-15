@@ -65,7 +65,7 @@ public:
             std::swap(nums[0], nums[n-1]);
             --n;
             maxHeapify(nums, 1, n);  1 -> index to call heapify upon
-            //--k;
+            --k;
         }
         
         // step 3
