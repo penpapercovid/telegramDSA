@@ -75,7 +75,7 @@ public:
             // handling rep' for data at index i
             ------------------------------------------------
                     IMPORTANT, CAN CAUSE RUNTIME ERROR 
-                    eg [0,0,0,0], target = 0 if j < n used
+                    eg [0,0,0,0], target = 0 if i < n used
             while (i < n - 1 && nums[i] == nums[i+1]) ++i;
             -------------------------------------------------
         }
