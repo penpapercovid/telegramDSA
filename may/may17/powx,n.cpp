@@ -23,6 +23,17 @@ METHOD1
     }
 -------------------------------------------------------------------------    
 METHOD2
+    
+     Using Divide and Conquer Approach
+    // 2^4 = 2^2 * 2^2
+    // 2^5 = 2 * 2^4 => 2 * 2^2 * 2^2
+    So general formula will be:
+                 ------------f(x, n/2) * f(x, n/2) when n is even
+                |
+    f(x, n) =---
+                |------------ x * f(x, n/2) * f(x, n/2) when n is odd
+              
+    
     double myPowUtil(double x, long long n) {
         if (n == 0) return 1;
         double midVal = myPowUtil(x, n/2);
